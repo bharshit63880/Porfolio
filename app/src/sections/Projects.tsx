@@ -12,7 +12,7 @@ const projectsData = [
     icon: Cpu,
     color: 'cyan',
     link: '#',
-    github: 'https://github.com/bharshit63880',
+    github: 'https://github.com/bharshit63880/AllSpark',
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const projectsData = [
     icon: ShoppingCart,
     color: 'pink',
     link: '#',
-    github: 'https://github.com/bharshit63880',
+    github: 'https://github.com/bharshit63880/Sastify',
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const projectsData = [
     icon: MessageSquare,
     color: 'purple',
     link: '#',
-    github: 'https://github.com/bharshit63880',
+    github: 'https://github.com/bharshit63880/PULSECHAT',
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ const projectsData = [
     icon: Sparkles,
     color: 'cyan',
     link: '#',
-    github: 'https://github.com/bharshit63880',
+    github: 'https://github.com/bharshit63880/DIGIPANDIT',
   },
 ];
 
