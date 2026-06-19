@@ -2,22 +2,36 @@ import { useEffect, useRef, useState } from 'react';
 import { Briefcase, GraduationCap, Calendar, ChevronRight } from 'lucide-react';
 
 const journeyData = [
+ {
+  id: 1,
+  type: 'work',
+  title: 'Full Stack Developer Intern',
+  company: 'GB Nodes',
+  period: 'Jan 2026 – Jun 2026',
+  description: [
+    'Developed and maintained responsive web applications using React, Node.js, and Express.js',
+    'Designed REST APIs and integrated MongoDB for efficient data management',
+    'Collaborated with the development team to improve application performance and user experience',
+  ],
+  icon: Briefcase,
+  color: 'cyan',
+},
+{
+  id: 2,
+  type: 'work',
+  title: 'Full Stack Developer Intern',
+  company: 'DGEN',
+  period: 'May 2025 – Oct 2025',
+  description: [
+    'Built AI-powered and business-focused web solutions using the MERN stack',
+    'Implemented authentication, role-based access control, and third-party API integrations',
+    'Optimized frontend performance, improved backend scalability, and participated in feature planning and deployment',
+  ],
+  icon: Briefcase,
+  color: 'cyan',
+},
   {
-    id: 1,
-    type: 'work',
-    title: 'Full Stack Developer Intern',
-    company: 'GB Nodes',
-    period: 'jan  2026 – june2026',
-    description: [
-      'Built company\'s official website using React + Node.js + Express',
-      'Accelerated project delivery by 30% through optimized workflows',
-      'Implemented scalable backend and responsive frontend',
-    ],
-    icon: Briefcase,
-    color: 'cyan',
-  },
-  {
-    id: 2,
+    id: 3,
     type: 'education',
     title: 'B.Tech Computer Science',
     company: 'SRGI Jhansi',
