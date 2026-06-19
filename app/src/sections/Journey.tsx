@@ -6,8 +6,8 @@ const journeyData = [
     id: 1,
     type: 'work',
     title: 'Full Stack Developer Intern',
-    company: 'Altius Technologies',
-    period: 'Sep 2025 – Present',
+    company: 'GB Nodes',
+    period: 'jan  2026 – june2026',
     description: [
       'Built company\'s official website using React + Node.js + Express',
       'Accelerated project delivery by 30% through optimized workflows',
