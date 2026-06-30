@@ -92,7 +92,13 @@ export function Hero() {
             
             {/* Description */}
             <p className="font-body text-lg sm:text-xl lg:text-2xl gradient-text-red-pink mb-8 max-w-xl mx-auto lg:mx-0">
-              I&apos;m passionate about building products and constantly learning. Every day, I&apos;m exploring something new.
+              ✔ 2 Full Stack Internships
+
+              ✔ Built 3 Production-grade Applications
+
+              ✔ MERN • Redis • Kafka • Docker • Socket.IO
+
+              ✔ Open to Full-Time SDE Roles
             </p>
             
             {/* CTA Buttons */}
