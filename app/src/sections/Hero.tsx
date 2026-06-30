@@ -90,16 +90,51 @@ export function Hero() {
               &lt;Full Stack Developer | MERN Stack & Microservices/&gt;
             </p>
             
-            {/* Description */}
-            <p className="font-body text-lg sm:text-xl lg:text-2xl gradient-text-red-pink mb-8 max-w-xl mx-auto lg:mx-0">
-              ✔ 2 Full Stack Internships
+        <div className="mb-8 max-w-xl mx-auto lg:mx-0 space-y-4">
 
-              ✔ Built 3 Production-grade Applications
+  <p className="text-lg lg:text-xl text-gray-300 leading-relaxed">
+    Building <span className="text-cyan font-semibold">scalable full-stack applications</span>
+    using React, Node.js, Redis, Kafka and Docker with a strong focus on
+    performance, clean architecture and real-time systems.
+  </p>
 
-              ✔ MERN • Redis • Kafka • Docker • Socket.IO
+  <div className="grid grid-cols-2 gap-3 mt-6">
 
-              ✔ Open to Full-Time SDE Roles
-            </p>
+    <div className="glass-card p-4 rounded-xl border border-cyan/20">
+      <p className="text-3xl font-bold text-white">2</p>
+      <p className="text-sm text-gray-400">
+        Full Stack Internships
+      </p>
+    </div>
+
+    <div className="glass-card p-4 rounded-xl border border-cyan/20">
+      <p className="text-3xl font-bold text-white">3</p>
+      <p className="text-sm text-gray-400">
+        Production Projects
+      </p>
+    </div>
+
+    <div className="glass-card p-4 rounded-xl border border-cyan/20">
+      <p className="text-3xl font-bold text-white">
+        20+
+      </p>
+      <p className="text-sm text-gray-400">
+        Technologies
+      </p>
+    </div>
+
+    <div className="glass-card p-4 rounded-xl border border-cyan/20">
+      <p className="text-3xl font-bold text-white">
+        MERN
+      </p>
+      <p className="text-sm text-gray-400">
+        Redis • Kafka • Docker
+      </p>
+    </div>
+
+  </div>
+
+</div>
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
