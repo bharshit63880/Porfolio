@@ -76,12 +76,12 @@ export function Hero() {
         }}
       />
 
-      <div className="relative z-10 section-padding w-full max-w-7xl mx-auto">
+      <div className="relative z-10 section-padding w-full max-w-7xl mx-auto mt- 12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left">
             {/* Main Heading with Glitch Effect */}
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4">
+         <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.15] lg:leading-[1.1] mb-6">
               <span className="text-white text-glow-cyan">{displayText}</span>
             </h1>
             
@@ -90,7 +90,7 @@ export function Hero() {
               &lt;Full Stack Developer | MERN Stack & Microservices/&gt;
             </p>
             
-        <div className="mb-8 max-w-xl mx-auto lg:mx-0 space-y-4">
+        <div className="mb-8  max-w-xl mx-auto lg:mx-0 space-y-4">
 
   <p className="text-lg lg:text-xl text-gray-300 leading-relaxed">
     Building <span className="text-cyan font-semibold">scalable full-stack applications</span>
