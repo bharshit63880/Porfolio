@@ -11,7 +11,6 @@ const projectsData = [
     tech: ['Microservices', 'Kafka', 'Docker', 'Redis', 'Judge0'],
     icon: Cpu,
     color: 'cyan',
-    link: '#',
     github: 'https://github.com/bharshit63880/AllSpark',
   },
   {
@@ -23,7 +22,7 @@ const projectsData = [
     tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux'],
     icon: ShoppingCart,
     color: 'pink',
-    link: '#',
+    link: 'https://sastify-frontend.vercel.app/',
     github: 'https://github.com/bharshit63880/Sastify',
   },
   {
@@ -35,7 +34,6 @@ const projectsData = [
     tech: ['TypeScript', 'Socket.io', 'E2E Encryption', 'WebSocket', 'Node.js'],
     icon: MessageSquare,
     color: 'purple',
-    link: '#',
     github: 'https://github.com/bharshit63880/PULSECHAT',
   },
   {
@@ -47,7 +45,6 @@ const projectsData = [
     tech: ['React Native', 'Razorpay', 'Real-time Chat', 'Node.js', 'MongoDB'],
     icon: Sparkles,
     color: 'cyan',
-    link: '#',
     github: 'https://github.com/bharshit63880/DIGIPANDIT',
   },
 ];
@@ -186,12 +183,7 @@ export function Projects() {
                         >
                           <Github size={18} />
                         </a>
-                        <a
-                          href={project.link}
-                          className="w-10 h-10 rounded-lg bg-black/50 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors"
-                        >
-                          <ExternalLink size={18} />
-                        </a>
+                       
                       </div>
                     </div>
                     
