@@ -6,6 +6,7 @@ import { Journey } from './sections/Journey';
 import { Expertise } from './sections/Expertise';
 import { Projects } from './sections/Projects';
 import { Connect } from './sections/Connect';
+import { CodeGame } from './sections/CodeGame';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -95,6 +96,7 @@ function App() {
         <Journey />
         <Expertise />
         <Projects />
+        <CodeGame />
         <Connect />
       </main>
 

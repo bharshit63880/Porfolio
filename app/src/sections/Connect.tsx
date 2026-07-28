@@ -120,6 +120,7 @@ export function Connect() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -141,16 +142,35 @@ export function Connect() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setSubmitError('');
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/bharshit63880@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio message from ${formData.name}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+
+      if (!response.ok) throw new Error('Message could not be sent');
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch {
+      setSubmitError('Message send nahi hua. Please email me directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -294,6 +314,12 @@ export function Connect() {
                     </>
                   )}
                 </button>
+                {submitError && (
+                  <p role="alert" className="text-sm text-pink text-center">
+                    {submitError}{' '}
+                    <a className="underline" href="mailto:bharshit63880@gmail.com">Open email</a>
+                  </p>
+                )}
               </div>
             </form>
           </div>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, Sparkles } from 'lucide-react';
 export function Hero() {
   const [displayText, setDisplayText] = useState('');
   const fullText = 'HARSHIT BHARDWAJ';
@@ -124,6 +124,15 @@ export function Hero() {
                 <span className="relative z-10">Let&apos;s Connect</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-pink/20 to-purple/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
+
+              <a
+                href="/Harshit-Bhardwaj-Resume.pdf"
+                download="Harshit-Bhardwaj-Resume.pdf"
+                className="relative overflow-hidden px-8 py-4 font-display text-lg tracking-wider uppercase border border-purple/40 text-white hover:border-purple transition-all duration-300 group inline-flex items-center justify-center gap-2"
+              >
+                <Download size={18} className="text-purple group-hover:translate-y-0.5 transition-transform" />
+                Download Resume
+              </a>
             </div>
             
             {/* Floating Skill Icons */}

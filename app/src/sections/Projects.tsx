@@ -7,10 +7,11 @@ const projectsData = [
     title: 'AllSpark',
     subtitle: 'Online Coding & Evaluation Platform',
     description: 'A comprehensive coding platform with microservices architecture, real-time contests, and automated code evaluation.',
-    image: '/project-allspark.jpg',
+    image: '/project-allspark-real.png',
     tech: ['Microservices', 'Kafka', 'Docker', 'Redis', 'Judge0'],
     icon: Cpu,
     color: 'cyan',
+    link: null,
     github: 'https://github.com/bharshit63880/AllSpark',
   },
   {
@@ -18,11 +19,11 @@ const projectsData = [
     title: 'Sastify',
     subtitle: 'Full Stack E-Commerce Platform',
     description: 'Feature-rich e-commerce solution with cart, wishlist, payment integration, and comprehensive admin panel.',
-    image: '/project-sastify.jpg',
+    image: '/project-sastify-real.png',
     tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux'],
     icon: ShoppingCart,
     color: 'pink',
-    link: 'https://sastify-frontend.vercel.app/',
+    link: 'https://sastify-frontend.vercel.app',
     github: 'https://github.com/bharshit63880/Sastify',
   },
   {
@@ -30,10 +31,11 @@ const projectsData = [
     title: 'Pulse Private Messenger',
     subtitle: 'Secure Real-time Chat App',
     description: 'End-to-end encrypted messaging application with TypeScript, Socket.io, and modern security practices.',
-    image: '/project-pulse.jpg',
+    image: '/project-pulse-real.png',
     tech: ['TypeScript', 'Socket.io', 'E2E Encryption', 'WebSocket', 'Node.js'],
     icon: MessageSquare,
     color: 'purple',
+    link: 'https://pulsechat-web-rose.vercel.app',
     github: 'https://github.com/bharshit63880/PULSECHAT',
   },
   {
@@ -41,10 +43,11 @@ const projectsData = [
     title: 'DigiPandit',
     subtitle: 'Marketplace for Puja & Astrology',
     description: 'Spiritual services marketplace built with React Native, featuring Razorpay payments and real-time chat with pandits.',
-    image: '/project-digipandit.jpg',
+    image: '/project-digipandit-real.png',
     tech: ['React Native', 'Razorpay', 'Real-time Chat', 'Node.js', 'MongoDB'],
     icon: Sparkles,
     color: 'cyan',
+    link: 'https://digipandit-web.vercel.app',
     github: 'https://github.com/bharshit63880/DIGIPANDIT',
   },
 ];
@@ -179,11 +182,24 @@ export function Projects() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`View ${project.title} source code on GitHub`}
+                          title="View source code"
                           className="w-10 h-10 rounded-lg bg-black/50 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-colors"
                         >
                           <Github size={18} />
                         </a>
-                       
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Open ${project.title} live website`}
+                            title="Open live website"
+                            className="w-10 h-10 rounded-lg bg-cyan/20 backdrop-blur-sm flex items-center justify-center hover:bg-cyan/40 transition-colors"
+                          >
+                            <ExternalLink size={18} />
+                          </a>
+                        )}
                       </div>
                     </div>
                     
