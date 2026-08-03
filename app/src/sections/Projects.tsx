@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { ExternalLink, Github, Cpu, ShoppingCart, MessageSquare, Sparkles } from 'lucide-react';
+import { CheckCircle2, ExternalLink, Github, Cpu, ShoppingCart, MessageSquare, ShieldCheck, Sparkles } from 'lucide-react';
 
 const projectsData = [
   {
     id: 1,
     title: 'AllSpark',
     subtitle: 'Online Coding & Evaluation Platform',
-    description: 'A comprehensive coding platform with microservices architecture, real-time contests, and automated code evaluation.',
+    description: 'A distributed coding ecosystem where independent services handle identity, problems, submissions, contests, permissions, support and live leaderboards behind a shared API gateway.',
+    highlights: ['Judge0 code execution', 'Kafka domain events', 'Redis live state', 'OTP auth & RBAC'],
+    status: 'Dockerized local platform',
     image: '/project-allspark-real.png',
     tech: ['Microservices', 'Kafka', 'Docker', 'Redis', 'Judge0'],
     icon: Cpu,
@@ -17,8 +19,10 @@ const projectsData = [
   {
     id: 2,
     title: 'Sastify',
-    subtitle: 'Full Stack E-Commerce Platform',
-    description: 'Feature-rich e-commerce solution with cart, wishlist, payment integration, and comprehensive admin panel.',
+    subtitle: 'Commerce, Checkout & Admin Platform',
+    description: 'A complete marketplace workflow spanning customer identity, guest-cart sync, addresses, coupons, inventory-aware checkout, payment verification and protected administration.',
+    highlights: ['PayU / Razorpay flows', 'Idempotent verification', 'Ownership-scoped APIs', 'Role-protected admin'],
+    status: 'Live frontend deployment',
     image: '/project-sastify-real.png',
     tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux'],
     icon: ShoppingCart,
@@ -28,9 +32,11 @@ const projectsData = [
   },
   {
     id: 3,
-    title: 'Pulse Private Messenger',
-    subtitle: 'Secure Real-time Chat App',
-    description: 'End-to-end encrypted messaging application with TypeScript, Socket.io, and modern security practices.',
+    title: 'PulseChat',
+    subtitle: 'Private Real-Time Messaging Workspace',
+    description: 'A security-focused messaging monorepo where direct-message text and media are encrypted in the browser before transport, backed by device-aware sessions and real-time delivery.',
+    highlights: ['Browser-side encryption', 'Rotating device sessions', 'Presence & seen states', 'Offline outbox retry'],
+    status: 'Live web deployment',
     image: '/project-pulse-real.png',
     tech: ['TypeScript', 'Socket.io', 'E2E Encryption', 'WebSocket', 'Node.js'],
     icon: MessageSquare,
@@ -41,14 +47,30 @@ const projectsData = [
   {
     id: 4,
     title: 'DigiPandit',
-    subtitle: 'Marketplace for Puja & Astrology',
-    description: 'Spiritual services marketplace built with React Native, featuring Razorpay payments and real-time chat with pandits.',
+    subtitle: 'Spiritual Services, Guidance & Commerce',
+    description: 'A Hindi-first multi-domain platform combining expert discovery, service bookings, Kundali experiences, guided Hawans, puja commerce and role-aware dashboards.',
+    highlights: ['Booking workflows', 'Guided Hawan engine', 'Store & PayU checkout', 'Multi-role dashboards'],
+    status: 'Live web & REST API',
     image: '/project-digipandit-real.png',
     tech: ['React Native', 'Razorpay', 'Real-time Chat', 'Node.js', 'MongoDB'],
     icon: Sparkles,
     color: 'cyan',
     link: 'https://digipandit-web.vercel.app',
     github: 'https://github.com/bharshit63880/DIGIPANDIT',
+  },
+  {
+    id: 5,
+    title: 'SatyaShield',
+    subtitle: 'Privacy-First Case Coordination Platform',
+    description: 'A sensitive-workflow system built around identity-minimized reporting, one-time case access, encrypted evidence and exact-resource authorization for reporters, NGOs, investigators and administrators.',
+    image: '/project-satyashield-real.png',
+    tech: ['React', 'Node.js', 'AES-GCM', 'TOTP MFA', 'Socket.IO'],
+    highlights: ['Encrypted evidence vault', 'Case-level permissions', 'Realtime coordination', 'Safety triage & audit'],
+    status: 'Public evaluation demo',
+    icon: ShieldCheck,
+    color: 'purple',
+    link: 'https://satya-shield-client.vercel.app',
+    github: 'https://github.com/bharshit63880/SatyaShield',
   },
 ];
 
@@ -151,20 +173,20 @@ export function Projects() {
             return (
               <div
                 key={project.id}
-                className={`transition-all duration-700 ${
+                className={`transition-all duration-700 ${project.id === 5 ? 'md:col-span-2' : ''} ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <TiltCard>
-                  <div className="relative group rounded-2xl overflow-hidden glass border border-white/10 hover:border-cyan/30 transition-all duration-500">
+                <TiltCard className="h-full">
+                  <div className={`relative group h-full rounded-2xl overflow-hidden glass border border-white/10 hover:border-cyan/30 transition-all duration-500 ${project.id === 5 ? 'lg:grid lg:grid-cols-[1.05fr_1fr]' : 'flex flex-col'}`}>
                     {/* Image Container */}
-                    <div className="relative h-56 sm:h-64 overflow-hidden">
+                    <div className={`relative overflow-hidden ${project.id === 5 ? 'h-64 lg:h-full lg:min-h-[520px]' : 'h-56 sm:h-64'}`}>
                       <img
                         src={project.image}
-                        alt={project.title}
+                        alt={`${project.title} application preview`}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       
@@ -204,7 +226,7 @@ export function Projects() {
                     </div>
                     
                     {/* Content */}
-                    <div className="p-6">
+                    <div className="p-6 sm:p-7 flex flex-col flex-1">
                       {/* Title */}
                       <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-1 group-hover:text-cyan transition-colors">
                         {project.title}
@@ -214,12 +236,26 @@ export function Projects() {
                       </p>
                       
                       {/* Description */}
-                      <p className="font-body text-white/60 text-sm mb-4 line-clamp-2">
+                      <p className="font-body text-white/65 text-sm leading-6 mb-5">
                         {project.description}
                       </p>
+
+                      <div className="grid sm:grid-cols-2 gap-2 mb-5">
+                        {project.highlights.map((highlight) => (
+                          <div key={highlight} className="flex items-start gap-2 text-xs text-white/70">
+                            <CheckCircle2 size={14} className={`mt-0.5 shrink-0 text-${project.color}`} />
+                            <span>{highlight}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="inline-flex self-start items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-white/5 border border-white/10 font-mono text-[11px] text-white/55">
+                        <span className={`w-1.5 h-1.5 rounded-full bg-${project.color} animate-pulse`} />
+                        {project.status}
+                      </div>
                       
                       {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 mb-6">
                         {project.tech.map((tech) => (
                           <span
                             key={tech}
@@ -228,6 +264,27 @@ export function Projects() {
                             {tech}
                           </span>
                         ))}
+                      </div>
+
+                      <div className="mt-auto flex flex-wrap gap-3 pt-5 border-t border-white/10">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all text-sm"
+                        >
+                          <Github size={16} /> Source Code
+                        </a>
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan/10 border border-cyan/25 hover:border-cyan/60 hover:bg-cyan/20 transition-all text-sm text-cyan"
+                          >
+                            <ExternalLink size={16} /> Live Demo
+                          </a>
+                        )}
                       </div>
                     </div>
                     
