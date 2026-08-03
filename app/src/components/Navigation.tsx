@@ -54,6 +54,7 @@ export function Navigation() {
   return (
     <>
       <nav
+        aria-label="Primary navigation"
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled ? 'top-3' : 'top-0'
         }`}
@@ -89,8 +90,10 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-1 p-1.5 rounded-full border border-white/10 bg-white/[0.03]">
             {navLinks.map((link) => (
               <button
+                type="button"
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
+                aria-current={activeSection === link.href ? 'page' : undefined}
                 className={`relative px-4 py-2 rounded-full font-body text-sm transition-all duration-300 group ${
                   activeSection === link.href
                     ? 'text-black bg-cyan shadow-[0_0_22px_rgba(0,240,255,0.35)]'
@@ -107,8 +110,12 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             className="md:hidden text-white p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -117,6 +124,8 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <div
+        id="mobile-navigation"
+        aria-hidden={!isMobileMenuOpen}
         className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
@@ -125,8 +134,10 @@ export function Navigation() {
         <div className="relative h-full flex flex-col items-center justify-center gap-8">
           {navLinks.map((link, index) => (
             <button
+              type="button"
               key={link.name}
               onClick={() => scrollToSection(link.href)}
+              aria-current={activeSection === link.href ? 'page' : undefined}
               className={`font-display text-3xl transition-all duration-300 ${
                 activeSection === link.href ? 'text-cyan translate-x-2' : 'text-white hover:text-cyan'
               }`}
