@@ -2,6 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import { Briefcase, GraduationCap, Calendar, ChevronRight } from 'lucide-react';
 
 const journeyData = [
+   {
+    id: 1,
+    type: 'work',
+    title: 'Freelance Full Stack Developer',
+    company: 'Self-Employed',
+    period: 'Jan 2026 – Present',
+    description: [
+      'Collaborating on MERN stack projects using React.js, Node.js, TypeScript, and MongoDB',
+      'Developing secure REST APIs, authentication systems, and real-time application features',
+      'Working on frontend development, backend integration, database design, testing, and deployment',
+    ],
+    icon: Briefcase,
+    color: 'purple',
+  },
 
 {
   id: 2,
